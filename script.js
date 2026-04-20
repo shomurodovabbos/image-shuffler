@@ -2,6 +2,9 @@ const imageGrid = document.getElementById("imageGrid");
 const loadMoreBtn = document.getElementById("loadMore");
 const shuffleBtn = document.getElementById("shuffleBtn");
 const errorMessage = document.getElementById("errorMessage");
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modalImg");
+const closeBtn = document.getElementById("closeBtn");
 
 let currentPage = Math.floor(Math.random() * 30) + 1;
 const imagesPerPage = 12;
@@ -58,6 +61,22 @@ function displayImages(images) {
                 <a href="${image.url}" target="_blank">Photo by ${image.author} </a>
             </div>
         `;
+        const img = card.querySelector("img");
+
+        img.addEventListener("click", () => {
+            modal.classList.add("active");
+            modalImg.src = imageUrl;
+        });
         imageGrid.appendChild(card);
     });
 }
+
+closeBtn.addEventListener("click", () => {
+    modal.classList.remove("active");
+});
+
+modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        modal.classList.remove("active");
+    }
+});
