@@ -157,7 +157,7 @@ header p {
     max-height: 85vh;
     object-fit: contain;
     border-radius: 16px;
-    animation: zoomIn 0.25s ease;
+    animation: zoomIn 0.35s cubic-bezier(0.17, 0.67, 0.33, 1);
 }
 
 .close {
